@@ -9,10 +9,13 @@ import serverRouter from "./routes/server.routes.js";
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://ggcomms.netlify.app"
+];
 
 const corsOptions = {
-  // origin: "http://localhost:5173", 
-  origin:"https://ggcomms.netlify.app",
+  origin:allowedOrigins,
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -27,7 +30,7 @@ const httpServer = createServer(app);
 
 
 const io = new Server(httpServer, {
-  cors: { origin: "http://localhost:5173", credentials: true },
+  cors: { origin: ["http://localhost:5173","https://ggcomms.netlify.app"], credentials: true },
 });
 
 io.on("connection", (socket) => {
