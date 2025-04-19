@@ -15,7 +15,7 @@ const allowedOrigins = [
 ];
 
 const corsOptions = {
-  origin:'https://ggcomms.netlify.app',
+  origin:allowedOrigins,
   credentials: true,
 };
 app.use(cors(corsOptions));
