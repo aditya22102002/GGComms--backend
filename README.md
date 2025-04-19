@@ -60,3 +60,42 @@ Built with **Node.js**, **Express**, **MongoDB**, and **Socket.IO**, it focuses 
 
 ## 🗂️ Project Structure
 
+server/
+├── config/             # Database connection and app-wide configs
+│   └── db.js
+│
+├── controllers/        # Route handler logic (auth, friends, servers, etc.)
+│   ├── authController.js
+│   ├── friendController.js
+│   ├── messageController.js
+│   └── serverController.js
+│
+├── middleware/         # Custom middleware (auth protection, error handling)
+│   ├── authMiddleware.js
+│   └── errorHandler.js
+│
+├── models/             # Mongoose schemas for all entities
+│   ├── User.js
+│   ├── FriendRequest.js
+│   ├── Server.js
+│   ├── Channel.js
+│   └── Message.js
+│
+├── routes/             # Express route definitions
+│   ├── authRoutes.js
+│   ├── friendRoutes.js
+│   ├── serverRoutes.js
+│   └── index.js
+│
+├── sockets/            # All real-time socket event handling
+│   └── socketHandler.js
+│
+├── utils/              # Utility functions and helpers
+│   ├── generateToken.js
+│   └── formatUser.js
+│
+├── .env                # Environment variables (not committed)
+├── .gitignore          # Ignored files/folders
+├── package.json        # Project metadata and scripts
+├── index.js            # Entry point – initializes server and sockets
+└── README.md           # Project documentation
